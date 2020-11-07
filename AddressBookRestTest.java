@@ -58,9 +58,9 @@ public class AddressBookRestTest {
 	public void givenListOfNewContacts_WhenAdded__ShouldMatchContactsCount() {
 		Contact[] arrayOfEmps = getContactList();
 		addressBookService = new AddressBookRestMain(Arrays.asList(arrayOfEmps));
-		Contact[] arrayOfContact = { new Contact(0, "DevS", "M", 1000000.00, LocalDate.of(2019, 8, 16)),
-				new Contact(0, "Kavya", "F", 2000000.00, LocalDate.of(2017, 11, 14)),
-				new Contact(0, "Jayesh", "M", 1000000.00, LocalDate.now()) };
+		Contact[] arrayOfContact = { new Contact(0, "Nayan", "M", 200000.00, LocalDate.of(2019, 8, 16)),
+				new Contact(0, "Aaron", "M", 500000.00, LocalDate.of(2017, 11, 14)),
+				new Contact(0, "Mrunal", "M", 20000.00, LocalDate.now()) };
 		for (Contact contactData : arrayOfContact) {
 			Response response = addContactToJSONServer(contactData);
 			int statusCode = response.getStatusCode();
