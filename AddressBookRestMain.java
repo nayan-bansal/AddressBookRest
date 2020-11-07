@@ -16,7 +16,7 @@ public class AddressBookRestMain {
 
 	public AddressBookRestMain(List<Contact> contactList) {
 		this();
-		this.contactList = new ArrayList<>(contactList); 
+		this.contactList = new ArrayList<>(contactList); // Use new memory not the same as provided by client to avoid confusion
 
 	}
 
@@ -31,13 +31,19 @@ public class AddressBookRestMain {
 		System.out.println(contactList.size());
 	}
 
-	public Contact getEmployeeData(String name) {
+	public Contact getContactData(String name) {
 		return contactList.stream().filter(contact->contact.name.equalsIgnoreCase(name)).findFirst().orElse(null);
 	}
 
 	public void updateContactSalary(String name, double salary, IOService ioService) {
-		Contact contact=getEmployeeData(name);
+		Contact contact=getContactData(name);
 		if(contact!=null)
 			contact.salary=salary;
 	}
+
+	public void deleteContactData(String name, IOService ioService) {
+		Contact contactData=getContactData(name);
+		contactList.remove(contactData);
+	}
+	
 }
